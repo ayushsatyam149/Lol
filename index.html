@@ -1,0 +1,232 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XADARSHX MOD</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.1/lottie.min.js"></script>
+</head>
+<body>
+    <!-- Glowing Login Page -->
+    <div id="loginPage" class="page">
+        <div class="glow-box">
+            <h1>XADARSHX WEB</h1>
+            <p id="onlineCount">Online Members: 0</p>
+            <input type="text" id="loginUsername" placeholder="Enter Username">
+            <input type="password" id="loginPassword" placeholder="Enter Password">
+            <button onclick="login()">Login</button>
+        </div>
+    </div>
+    <!-- Registration Page -->
+    <div id="registerPage" class="page hidden">
+        <div class="glow-box">
+            <h1>Register</h1>
+            <input type="text" id="registerName" placeholder="Enter Game Name ">
+            <input type="email" id="registerEmail" placeholder="Enter Game Uid">
+            <input type="text" id="registerMobile" placeholder="Enter Mobile Number">
+            <button onclick="registerMember()">Register</button>
+        </div>
+    </div>
+    <!-- Prediction Page -->
+    <div id="predictionPage" class="page hidden">
+        <div class="panel">
+            <h1>XADARSHX WEB</h1>
+            <select id="gameSpinner">
+                <option>51 GAME</option>
+                <option>BDG WIN</option>
+                <option>91 CLUB</option>
+                <option>GOA GAME</option>
+                <option>BIG KOLKATA</option>
+                <option>DM WIN</option>
+                <option>DIU WIN</option>
+                <option>SIKKIM</option>
+                <option>82 LOTTERY</option>
+                <option>TIRANGA</option>
+                <option>TC LOTTERY</option>
+                <option>IN999</option>
+                <option>BIG MUMBAI</option>
+            </select>
+            <input type="number" id="predictionBox" placeholder="Enter Period Number" maxlength="3" required>
+            <div id="card" class="card">BIG</div>
+            <button onclick="predict()">RESULT</button>
+            <div id="animationContainer"></div>
+            <p id="winningInfo"></p>
+            <p class="footer">MADE BY XADARSHX | <a href="https:https://t.me/+xc4j2ryM_QZhN2Fl" target="_blank">Telegram</a></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html><style>/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #121212;
+    color: white;
+}
+.page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.hidden {
+    display: none;
+}
+/* Glowing Box */
+.glow-box {
+    text-align: center;
+    background: #1e1e1e;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #ffcc00;
+    animation: glow 1.5s infinite alternate;
+}
+@keyframes glow {
+    from {
+        box-shadow: 0 0 20px #ffcc00;
+    }
+    to {
+        box-shadow: 0 0 30px #ffd700;
+    }
+}
+/* Inputs and Buttons */
+input, select {
+    width: 80%;
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+}
+button {
+    width: 80%;
+    padding: 10px;
+    background: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+button:hover {
+    background: #ffd700;
+}
+/* Card Styles */
+.card {
+    width: 150px;
+    height: 200px;
+    margin: 20px auto;
+    background: #ffcc00;
+    color: black;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.6s, background 0.3s;
+}
+.card.flipped {
+    transform: rotateY(180deg);
+    background: #1e1e1e;
+    color: white;
+}
+/* Footer */
+.footer {
+    margin-top: 20px;
+    font-size: 14px;
+}
+/* Lottie Animation Container */
+#animationContainer {
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+}
+#winningInfo {
+    font-size: 18px;
+    margin-top: 20px;
+}
+#onlineCount {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 14px;
+    color: #ffcc00;
+}
+/* Running Text */
+footer, #onlineCount, .footer {
+    animation: moveText 10s linear infinite;
+}
+@keyframes moveText {
+    0% {transform: translateX(100%);}
+    100% {transform: translateX(-100%);}
+}</style><script>let onlineCount = Math.floor(Math.random() * 9000) + 1000;
+let currentWinnerIndex = 0;
+document.getElementById("onlineCount").innerText = "Online Members: " + onlineCount;
+// Random Winners for Prediction Page
+const winners = [
+    { name: "ishant", price: "₹500" },
+    { name: "Blade", price: "₹1000" },
+    { name: "Abhishek", price: "₹2000" },
+    { name: "Yuvraj", price: "₹3000" },
+    { name: "Tanishk", price: "₹4000" }
+];
+setInterval(() => {
+    const winner = winners[Math.floor(Math.random() * winners.length)];
+    document.getElementById("winningInfo").innerText = `${winner.name} won ${winner.price}`;
+}, 1000);
+// Login Function
+function login() {
+    const username = document.getElementById("loginUsername").value;
+    const password = document.getElementById("loginPassword").value;
+    if (username === "CRACK" && password === "DONE") {
+        document.getElementById("loginPage").classList.add("hidden");
+        document.getElementById("registerPage").classList.remove("hidden");
+    } else {
+        alert("Invalid Username or Password");
+    }
+}
+// Register Function
+function registerMember() {
+    const name = document.getElementById("registerName").value;
+    const email = document.getElementById("registerEmail").value;
+    const mobile = document.getElementById("registerMobile").value;
+    if (name && email && mobile) {
+        document.getElementById("registerPage").classList.add("hidden");
+        document.getElementById("predictionPage").classList.remove("hidden");
+        showRandomWinnerInfo();
+    } else {
+        alert("Please fill all the fields.");
+    }
+}
+// Prediction Function
+function predict() {
+    const card = document.getElementById("card");
+    const outcomes = ["BIG", "SMALL"];
+    const prediction = document.getElementById("predictionBox").value;
+    if (prediction.length === 3) {
+        card.classList.add("flipped");
+        setTimeout(() => {
+            card.innerText = outcomes[Math.floor(Math.random() * outcomes.length)];
+            card.classList.remove("flipped");
+        }, 600);
+    } else {
+        alert("Enter a valid 3-digit number.");
+    }
+}
+// Show Random Winner Info
+function showRandomWinnerInfo() {
+    const name = winners[currentWinnerIndex].name;
+    const amount = winners[currentWinnerIndex].price;
+    document.getElementById("winningInfo").innerText = `${name} won ${amount}`;
+    currentWinnerIndex = (currentWinnerIndex + 1) % winners.length;
+}
+// Lottie Animation for Prediction Page
+lottie.loadAnimation({
+    container: document.getElementById("animationContainer"),
+    renderer: "svg",
+    loop: true,
+    autoplay: true,
+    path: "https://cdn.lottielab.com/l/EVjVWgu82P1YLe.json"
+});</script>
